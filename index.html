@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        تقييم موسم تجميع الحبوب - صابة 2026
+    </title>
+
+    <!-- Feuille de style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="institution">
+
+            <h3>
+                وزارة الفلاحة والموارد المائية والصيد البحري
+            </h3>
+
+            <h4>
+                ديوان الحبوب
+            </h4>
+
+        </div>
+
+
+        <div class="separator"></div>
+
+
+        <h1>
+            من السنابل إلى الصوامع
+        </h1>
+
+
+        <h2>
+            صابة 2026
+        </h2>
+
+
+        <p class="hero-description">
+            تقييم موسم تجميع الحبوب
+        </p>
+
+
+        <a href="#program" class="main-button">
+            اكتشف النتائج
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     CONTENU PRINCIPAL
+========================================= -->
+
+<main>
+
+
+<!-- =========================================
+     PROGRAMME
+========================================= -->
+
+<section id="program" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            01
+        </span>
+
+        <div>
+
+            <h2>
+                برنامج الندوة
+            </h2>
+
+            <p>
+                البرنامج العام لأشغال الندوة الوطنية
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="program-container">
+
+
+        <div class="program-item">
+
+            <div class="program-time">
+                09:00
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    الاستقبال والتسجيل
+                </h3>
+
+                <p>
+                    استقبال المشاركين وتسجيل الحضور.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+            <div class="program-time">
+                09:30
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    الجلسة الافتتاحية
+                </h3>
+
+                <p>
+                    كلمة الافتتاح وتقديم أشغال الندوة.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+            <div class="program-time">
+                10:00
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    تقديم نتائج موسم التجميع
+                </h3>
+
+                <p>
+                    عرض أهم المؤشرات المتعلقة بموسم تجميع الحبوب.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+            <div class="program-time">
+                11:00
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    استراحة
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+            <div class="program-time">
+                11:30
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    تحليل ومناقشة النتائج
+                </h3>
+
+                <p>
+                    مناقشة النتائج والصعوبات المسجلة
+                    والحلول المقترحة.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="program-item">
+
+            <div class="program-time">
+                13:00
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    اختتام أشغال الندوة
+                </h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INDICATEURS
+========================================= -->
+
+<section class="section indicators-section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            02
+        </span>
+
+        <div>
+
+            <h2>
+                المؤشرات الرئيسية
+            </h2>
+
+            <p>
+                أهم مؤشرات موسم تجميع الحبوب
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="indicators">
+
+
+        <div class="indicator-card">
+
+            <div class="indicator-icon">
+                🌾
+            </div>
+
+            <div class="indicator-value">
+                <span id="totalCollection">
+                    0
+                </span>
+            </div>
+
+            <div class="indicator-label">
+                الكميات المجمعة
+            </div>
+
+            <div class="indicator-unit">
+                طن
+            </div>
+
+        </div>
+
+
+        <div class="indicator-card">
+
+            <div class="indicator-icon">
+                🏭
+            </div>
+
+            <div class="indicator-value">
+                <span id="centersNumber">
+                    0
+                </span>
+            </div>
+
+            <div class="indicator-label">
+                مراكز التجميع
+            </div>
+
+        </div>
+
+
+        <div class="indicator-card">
+
+            <div class="indicator-icon">
+                📍
+            </div>
+
+            <div class="indicator-value">
+                <span id="governoratesNumber">
+                    0
+                </span>
+            </div>
+
+            <div class="indicator-label">
+                الولايات
+            </div>
+
+        </div>
+
+
+        <div class="indicator-card">
+
+            <div class="indicator-icon">
+                📈
+            </div>
+
+            <div class="indicator-value">
+                <span id="collectionRate">
+                    0
+                </span>%
+            </div>
+
+            <div class="indicator-label">
+                نسبة التجميع
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     GRAPHIQUES
+========================================= -->
+
+<section id="results" class="section">
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            03
+        </span>
+
+        <div>
+
+            <h2>
+                النتائج والإحصائيات
+            </h2>
+
+            <p>
+                قراءة بيانية لمعطيات موسم التجميع
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="charts-grid">
+
+
+        <!-- الرسم الأول -->
+
+        <article class="chart-card">
+
+            <div class="chart-title">
+
+                <h3>
+                    الكميات المجمعة حسب نوع الحبوب
+                </h3>
+
+                <p>
+                    توزيع الكميات حسب الأصناف
+                </p>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas id="cerealesChart"></canvas>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- الرسم الثاني -->
+
+        <article class="chart-card">
+
+            <div class="chart-title">
+
+                <h3>
+                    توزيع الكميات حسب المناطق
+                </h3>
+
+                <p>
+                    مساهمة مختلف المناطق في عملية التجميع
+                </p>
+
+            </div>
+
+
+            <div class="chart-wrapper">
+
+                <canvas id="regionsChart"></canvas>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- الرسم الثالث -->
+
+        <article class="chart-card chart-full">
+
+            <div class="chart-title">
+
+                <h3>
+                    تطور الكميات المجمعة
+                </h3>
+
+                <p>
+                    تطور عملية التجميع خلال الموسم
+                </p>
+
+            </div>
+
+
+            <div class="chart-wrapper large">
+
+                <canvas id="evolutionChart"></canvas>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================================
+     MESSAGE FINAL
+========================================= -->
+
+<section class="final-section">
+
+    <div>
+
+        <h2>
+            من السنابل إلى الصوامع
+        </h2>
+
+        <p>
+            معاً من أجل موسم تجميع ناجح
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <p>
+        ديوان الحبوب
+    </p>
+
+    <p>
+        تقييم موسم تجميع الحبوب - صابة 2026
+    </p>
+
+</footer>
+
+
+
+<!-- JavaScript -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+       
