@@ -9,25 +9,1073 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>
-        يوم تقييمي لموسم تجميع الحبوب
+        تقييم موسم تجميع الحبوب - صابة 2024
     </title>
-
-    <!-- Police arabe -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="style.css">
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+    <style>
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    direction: rtl;
+
+    text-align: right;
+
+    font-family:
+        Arial,
+        Tahoma,
+        sans-serif;
+
+    background: #f3eee3;
+
+    color: #273529;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background-image:
+
+        url("https://images.unsplash.com/photo-1500382017468-9049fed747ef");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(30, 55, 38, 0.78),
+            rgba(30, 55, 38, 0.55)
+        );
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 900px;
+
+}
+
+
+.institution h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.institution h4 {
+
+    font-size: 25px;
+
+}
+
+
+.separator {
+
+    width: 120px;
+
+    height: 2px;
+
+    background: rgba(255,255,255,0.8);
+
+    margin: 25px auto;
+
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(42px, 7vw, 75px);
+
+    line-height: 1.3;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero h2 {
+
+    font-size: 34px;
+
+    color: #e1b84a;
+
+    margin-bottom: 10px;
+
+}
+
+
+.hero-description {
+
+    font-size: 21px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.main-button {
+
+    display: inline-block;
+
+    padding: 13px 35px;
+
+    border-radius: 30px;
+
+    background: #d1a333;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.main-button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 75px 25px;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    margin-bottom: 40px;
+
+}
+
+
+.section-number {
+
+    flex-shrink: 0;
+
+    color: #bd8f1d;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: 32px;
+
+    line-height: 1.4;
+
+    margin-bottom: 5px;
+
+}
+
+
+.section-heading p {
+
+    color: #777;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================
+   PROGRAMME
+========================================= */
+
+.program-container {
+
+    width: 100%;
+
+    background: #fffdf8;
+
+    border-radius: 20px;
+
+    padding: 20px 30px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.07);
+
+}
+
+
+.program-item {
+
+    display: grid;
+
+    grid-template-columns:
+        90px 3px 1fr;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 100px;
+
+    padding: 15px 5px;
+
+    border-bottom:
+        1px solid #eee9df;
+
+}
+
+
+.program-item:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.program-time {
+
+    color: #bd8f1d;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+}
+
+
+.program-line {
+
+    width: 3px;
+
+    height: 55px;
+
+    background: #d1a333;
+
+    border-radius: 5px;
+
+}
+
+
+.program-content h3 {
+
+    font-size: 18px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.program-content p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   INDICATEURS
+========================================= */
+
+.indicators {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+
+}
+
+
+.indicator-card {
+
+    min-height: 200px;
+
+    background: #fffdf8;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.07);
+
+}
+
+
+.indicator-icon {
+
+    font-size: 35px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.indicator-value {
+
+    font-size: 31px;
+
+    font-weight: bold;
+
+    color: #324b31;
+
+    line-height: 1.3;
+
+}
+
+
+.indicator-label {
+
+    color: #555;
+
+    font-size: 15px;
+
+}
+
+
+.indicator-unit {
+
+    color: #999;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   CARD GENERIQUE POUR GRAPHIQUES
+========================================= */
+
+.chart-card {
+
+    width: 100%;
+
+    min-width: 0;
+
+    background: #fffdf8;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.07);
+
+    margin-bottom: 30px;
+
+}
+
+
+.chart-card:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.chart-title {
+
+    margin-bottom: 25px;
+
+}
+
+
+.chart-title h3 {
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    margin-bottom: 5px;
+
+}
+
+
+.chart-title p {
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   DIAGRAMME EN ARBRE (Capacités de stockage)
+========================================= */
+
+.tree {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 20px 10px 10px;
+
+}
+
+
+.tree-node {
+
+    background: #fffdf8;
+
+    border: 2px solid #d1a333;
+
+    border-radius: 12px;
+
+    padding: 14px 22px;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+
+}
+
+
+.tree-node .tree-value {
+
+    display: block;
+
+    font-size: 22px;
+
+    color: #324b31;
+
+    margin-top: 4px;
+
+}
+
+
+.tree-node.root {
+
+    background: #324b31;
+
+    border-color: #324b31;
+
+    color: white;
+
+    font-size: 17px;
+
+}
+
+
+.tree-node.root .tree-value {
+
+    color: #e1b84a;
+
+    font-size: 26px;
+
+}
+
+
+.tree-connector {
+
+    width: 2px;
+
+    height: 28px;
+
+    background: #d1a333;
+
+}
+
+
+.tree-row {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    padding-top: 28px;
+
+    width: 100%;
+
+}
+
+
+.tree-row::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 65%;
+
+    max-width: 420px;
+
+    height: 2px;
+
+    background: #d1a333;
+
+}
+
+
+.tree-branch {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    position: relative;
+
+    flex: 1;
+
+    max-width: 320px;
+
+}
+
+
+.tree-branch::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -28px;
+
+    right: auto;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 2px;
+
+    height: 28px;
+
+    background: #d1a333;
+
+}
+
+
+.tree-children {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    padding-top: 28px;
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+
+.tree-children::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 60%;
+
+    height: 2px;
+
+    background: #d1a333;
+
+}
+
+
+.tree-children .tree-node {
+
+    position: relative;
+
+    font-size: 14px;
+
+    padding: 10px 14px;
+
+}
+
+
+.tree-children .tree-node::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -28px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 2px;
+
+    height: 28px;
+
+    background: #d1a333;
+
+}
+
+
+.tree-children .tree-value {
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================
+   CLASSEMENT PAR GOUVERNORAT (à bulles)
+========================================= */
+
+.bubble-rank-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+}
+
+
+.bubble-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+
+.bubble-percent {
+
+    background: #202a22;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    padding: 8px 16px;
+
+    border-radius: 6px;
+
+    min-width: 58px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.bubble-name {
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    padding: 8px 18px;
+
+    border-radius: 6px;
+
+    min-width: 100px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.bubble-circle {
+
+    border-radius: 50%;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================
+   TROIS DONUTS COTE A COTE
+========================================= */
+
+.donut-row {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+
+}
+
+
+.donut-card {
+
+    flex: 1 1 240px;
+
+    max-width: 320px;
+
+    text-align: center;
+
+}
+
+
+.donut-card h4 {
+
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+    color: #324b31;
+
+}
+
+
+.donut-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 220px;
+
+}
+
+
+/* =========================================
+   SECTION FINALE
+========================================= */
+
+.final-section {
+
+    width: 100%;
+
+    padding: 90px 20px;
+
+    background: #324b31;
+
+    color: white;
+
+    text-align: center;
+
+}
+
+
+.final-section h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.final-section p {
+
+    font-size: 19px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    background: #202a22;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 13px;
+
+}
+
+
+footer p {
+
+    margin: 3px 0;
+
+}
+
+
+/* =========================================
+   TABLETTE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .indicators {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* =========================================
+   TELEPHONE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .hero {
+
+        min-height: 600px;
+
+    }
+
+
+    .institution h3 {
+
+        font-size: 17px;
+
+    }
+
+
+    .institution h4 {
+
+        font-size: 20px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .hero h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .section {
+
+        padding: 55px 15px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 27px;
+
+    }
+
+
+    .indicators {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .program-container {
+
+        padding: 15px;
+
+    }
+
+
+    .program-item {
+
+        grid-template-columns:
+            70px 3px 1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .program-time {
+
+        font-size: 16px;
+
+    }
+
+
+    .program-content h3 {
+
+        font-size: 16px;
+
+    }
+
+
+    .program-content p {
+
+        font-size: 13px;
+
+    }
+
+
+    .chart-card {
+
+        padding: 18px;
+
+    }
+
+
+    .tree-row {
+
+        gap: 30px;
+
+    }
+
+
+    .tree-children {
+
+        gap: 8px;
+
+    }
+
+
+    .final-section h2 {
+
+        font-size: 30px;
+
+    }
+
+}
+
+    </style>
 
 </head>
 
@@ -35,35 +1083,15 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER / PAGE D'ACCUEIL
-===================================================== -->
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header class="hero">
 
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-
-
-        <!-- Logo -->
-
-        <div class="logo-container">
-
-            <!--
-            إذا كان لديك شعار ديوان الحبوب،
-            ضعه في نفس المجلد باسم logo.png
-            -->
-
-            <img src="logo.png"
-                 alt="شعار ديوان الحبوب"
-                 class="logo"
-                 onerror="this.style.display='none'">
-
-        </div>
-
-
-        <!-- المؤسسة -->
 
         <div class="institution">
 
@@ -81,30 +1109,24 @@
         <div class="separator"></div>
 
 
-        <!-- العنوان الرئيسي -->
-
         <h1>
             من السنابل إلى الصوامع
         </h1>
 
 
         <h2>
-            يوم تقييمي لموسم تجميع الحبوب
+            صابة 2024
         </h2>
 
 
         <p class="hero-description">
-            صابة 2026
+            تقييم موسم تجميع الحبوب
         </p>
 
 
-        <a href="#program"
-           class="main-button">
-
+        <a href="#program" class="main-button">
             اكتشف النتائج
-
         </a>
-
 
     </div>
 
@@ -112,21 +1134,18 @@
 
 
 
-<!-- =====================================================
-     CONTENU
-===================================================== -->
+<!-- =========================================
+     CONTENU PRINCIPAL
+========================================= -->
 
 <main>
 
 
+<!-- =========================================
+     PROGRAMME
+========================================= -->
 
-<!-- =====================================================
-     01 - PROGRAMME
-===================================================== -->
-
-<section id="program"
-         class="section">
-
+<section id="program" class="section">
 
     <div class="section-heading">
 
@@ -141,7 +1160,7 @@
             </h2>
 
             <p>
-                البرنامج العام لأشغال اليوم التقييمي
+                البرنامج العام لأشغال الندوة الوطنية
             </p>
 
         </div>
@@ -149,16 +1168,13 @@
     </div>
 
 
-
     <div class="program-container">
 
 
-        <!-- 1 -->
-
         <div class="program-item">
 
             <div class="program-time">
-                09:00
+                08:30
             </div>
 
             <div class="program-line"></div>
@@ -166,24 +1182,18 @@
             <div class="program-content">
 
                 <h3>
-                    الاستقبال والتسجيل
+                    استقبال وتسجيل المشاركين
                 </h3>
-
-                <p>
-                    استقبال المشاركين وتسجيل الحضور.
-                </p>
 
             </div>
 
         </div>
 
 
-        <!-- 2 -->
-
         <div class="program-item">
 
             <div class="program-time">
-                09:30
+                08:55
             </div>
 
             <div class="program-line"></div>
@@ -191,11 +1201,11 @@
             <div class="program-content">
 
                 <h3>
-                    الجلسة الافتتاحية
+                    كلمة الترحيب
                 </h3>
 
                 <p>
-                    كلمة الافتتاح وتقديم أشغال اليوم التقييمي.
+                    السيدة الرئيسة المديرة العامة لديوان الحبوب
                 </p>
 
             </div>
@@ -203,12 +1213,10 @@
         </div>
 
 
-        <!-- 3 -->
-
         <div class="program-item">
 
             <div class="program-time">
-                10:00
+                09:05
             </div>
 
             <div class="program-line"></div>
@@ -216,11 +1224,11 @@
             <div class="program-content">
 
                 <h3>
-                    عرض نتائج موسم التجميع
+                    افتتاح الندوة
                 </h3>
 
                 <p>
-                    تقديم أهم المؤشرات والنتائج المتعلقة بموسم تجميع الحبوب.
+                    السيد وزير الفلاحة والموارد المائية والصيد البحري
                 </p>
 
             </div>
@@ -228,12 +1236,33 @@
         </div>
 
 
-        <!-- 4 -->
+        <div class="program-item">
+
+            <div class="program-time">
+                09:15
+            </div>
+
+            <div class="program-line"></div>
+
+            <div class="program-content">
+
+                <h3>
+                    نتائج ومؤشّرات موسم تجميع الحبوب 2024
+                </h3>
+
+                <p>
+                    عرض أهم المؤشرات المتعلقة بموسم تجميع الحبوب.
+                </p>
+
+            </div>
+
+        </div>
+
 
         <div class="program-item">
 
             <div class="program-time">
-                11:00
+                11:45
             </div>
 
             <div class="program-line"></div>
@@ -249,12 +1278,10 @@
         </div>
 
 
-        <!-- 5 -->
-
         <div class="program-item">
 
             <div class="program-time">
-                11:30
+                14:00
             </div>
 
             <div class="program-line"></div>
@@ -262,32 +1289,7 @@
             <div class="program-content">
 
                 <h3>
-                    تحليل ومناقشة النتائج
-                </h3>
-
-                <p>
-                    مناقشة النتائج والصعوبات المسجلة والحلول المقترحة.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- 6 -->
-
-        <div class="program-item">
-
-            <div class="program-time">
-                13:00
-            </div>
-
-            <div class="program-line"></div>
-
-            <div class="program-content">
-
-                <h3>
-                    اختتام أشغال اليوم التقييمي
+                    اختتام أشغال الندوة
                 </h3>
 
             </div>
@@ -301,12 +1303,11 @@
 
 
 
-<!-- =====================================================
-     02 - INDICATEURS
-===================================================== -->
+<!-- =========================================
+     INDICATEURS
+========================================= -->
 
-<section class="section">
-
+<section class="section indicators-section">
 
     <div class="section-heading">
 
@@ -321,7 +1322,7 @@
             </h2>
 
             <p>
-                أهم مؤشرات موسم تجميع الحبوب
+                أهم مؤشرات موسم تجميع الحبوب صابة 2024
             </p>
 
         </div>
@@ -329,11 +1330,8 @@
     </div>
 
 
-
     <div class="indicators">
 
-
-        <!-- الكميات -->
 
         <div class="indicator-card">
 
@@ -342,11 +1340,7 @@
             </div>
 
             <div class="indicator-value">
-
-                <span id="totalCollection">
-                    0
-                </span>
-
+                6,740,000
             </div>
 
             <div class="indicator-label">
@@ -354,14 +1348,11 @@
             </div>
 
             <div class="indicator-unit">
-                طن
+                قنطار
             </div>
 
         </div>
 
-
-
-        <!-- مراكز -->
 
         <div class="indicator-card">
 
@@ -370,11 +1361,7 @@
             </div>
 
             <div class="indicator-value">
-
-                <span id="centersNumber">
-                    0
-                </span>
-
+                182
             </div>
 
             <div class="indicator-label">
@@ -384,9 +1371,6 @@
         </div>
 
 
-
-        <!-- الولايات -->
-
         <div class="indicator-card">
 
             <div class="indicator-icon">
@@ -394,41 +1378,28 @@
             </div>
 
             <div class="indicator-value">
-
-                <span id="governoratesNumber">
-                    0
-                </span>
-
+                7
             </div>
 
             <div class="indicator-label">
-                الولايات
+                الولايات الأكثر مساهمة
             </div>
 
         </div>
 
 
-
-        <!-- النسبة -->
-
         <div class="indicator-card">
 
             <div class="indicator-icon">
-                📊
+                🏢
             </div>
 
             <div class="indicator-value">
-
-                <span id="collectionRate">
-                    0
-                </span>
-
-                %
-
+                26
             </div>
 
             <div class="indicator-label">
-                نسبة التجميع
+                مؤسسات تجميع الحبوب
             </div>
 
         </div>
@@ -440,13 +1411,11 @@
 
 
 
-<!-- =====================================================
-     03 - GRAPHIQUES
-===================================================== -->
+<!-- =========================================
+     مؤشرات موسم التجميع (نفس أشكال صفحة 2 من الدليل)
+========================================= -->
 
-<section id="results"
-         class="section">
-
+<section class="section">
 
     <div class="section-heading">
 
@@ -457,11 +1426,11 @@
         <div>
 
             <h2>
-                النتائج والإحصائيات
+                مؤشّرات موسم تجميع الحبوب صابة 2024
             </h2>
 
             <p>
-                توزيع كميات الحبوب المجمعة
+                طاقات الخزن والتجميع، والترتيب حسب الولايات
             </p>
 
         </div>
@@ -469,118 +1438,125 @@
     </div>
 
 
+    <!-- شجرة طاقات الخزن والتجميع -->
 
-    <div class="charts-grid">
+    <article class="chart-card">
+
+        <div class="chart-title">
+
+            <h3>
+                طاقات الخزن والتجميع الوطنية
+            </h3>
+
+            <p>
+                15,8 مليون قنطار
+            </p>
+
+        </div>
 
 
+        <div class="tree">
 
-        <!-- =================================================
-             GRAPHIQUE 1
-        ================================================= -->
+            <div class="tree-node root">
+                طاقات الخزن والتجميع الوطنية
+                <span class="tree-value">15,8</span>
+            </div>
 
-        <article class="chart-card">
+            <div class="tree-connector"></div>
+
+            <div class="tree-row">
+
+                <div class="tree-branch">
+
+                    <div class="tree-node">
+                        طاقة التخزين
+                        <span class="tree-value">8</span>
+                    </div>
+
+                    <div class="tree-children">
+
+                        <div class="tree-node">
+                            المطاحن
+                            <span class="tree-value">2,9</span>
+                        </div>
+
+                        <div class="tree-node">
+                            ديوان الحبوب
+                            <span class="tree-value">5,1</span>
+                        </div>
+
+                    </div>
+
+                </div>
 
 
-            <div class="chart-title">
+                <div class="tree-branch">
 
-                <h3>
-                    حسب النوع
-                </h3>
+                    <div class="tree-node">
+                        طاقة التجميع
+                        <span class="tree-value">7,8</span>
+                    </div>
 
-                <p>
-                    توزيع الحبوب المجمعة حسب النوع
-                </p>
+                    <div class="tree-children">
+
+                        <div class="tree-node">
+                            صوامع
+                            <span class="tree-value">4,9</span>
+                        </div>
+
+                        <div class="tree-node">
+                            مخازن
+                            <span class="tree-value">2,1</span>
+                        </div>
+
+                        <div class="tree-node">
+                            أحواض
+                            <span class="tree-value">0,8</span>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </div>
 
-            <div class="chart-wrapper">
-
-                <canvas id="cerealesChart">
-                </canvas>
-
-            </div>
+    </article>
 
 
-        </article>
+    <!-- ترتيب الولايات حسب نسبة المساهمة -->
+
+    <article class="chart-card">
+
+        <div class="chart-title">
+
+            <h3>
+                كميّات الحبوب المجمّعة حسب الولايات
+            </h3>
+
+            <p>
+                أهمّ الولايات المساهمة في عملية التجميع
+            </p>
+
+        </div>
 
 
+        <div class="bubble-rank-list" id="bubbleRankList">
+            <!-- تُملأ عبر JavaScript -->
+        </div>
 
-        <!-- =================================================
-             GRAPHIQUE 2
-        ================================================= -->
-
-        <article class="chart-card">
-
-
-            <div class="chart-title">
-
-                <h3>
-                    حسب الاستعمال
-                </h3>
-
-                <p>
-                    توزيع الحبوب حسب الاستعمال
-                </p>
-
-            </div>
-
-
-            <div class="chart-wrapper">
-
-                <canvas id="usageChart">
-                </canvas>
-
-            </div>
-
-
-        </article>
-
-
-
-        <!-- =================================================
-             GRAPHIQUE 3
-        ================================================= -->
-
-        <article class="chart-card chart-full">
-
-
-            <div class="chart-title">
-
-                <h3>
-                    حسب المجمعين
-                </h3>
-
-                <p>
-                    توزيع الكميات حسب مؤسسات التجميع
-                </p>
-
-            </div>
-
-
-            <div class="chart-wrapper large">
-
-                <canvas id="collectorsChart">
-                </canvas>
-
-            </div>
-
-
-        </article>
-
-
-    </div>
+    </article>
 
 </section>
 
 
 
-<!-- =====================================================
-     04 - ANALYSE
-===================================================== -->
+<!-- =========================================
+     توزيع كميات الحبوب المجمعة (نفس أشكال صفحة 3 من الدليل)
+========================================= -->
 
-<section class="section">
-
+<section id="results" class="section">
 
     <div class="section-heading">
 
@@ -591,11 +1567,11 @@
         <div>
 
             <h2>
-                قراءة وتحليل النتائج
+                توزيع كميّات الحبوب المجمّعة صابة 2024
             </h2>
 
             <p>
-                أهم الملاحظات والاستنتاجات
+                حسب المجمّعين، حسب الاستعمال، وحسب نوع الحبوب
             </p>
 
         </div>
@@ -603,78 +1579,66 @@
     </div>
 
 
+    <article class="chart-card">
 
-    <div class="analysis-grid">
+        <div class="donut-row">
 
+            <div class="donut-card">
 
-        <div class="analysis-card">
+                <h4>
+                    حسب المجمّعين
+                </h4>
 
-            <div class="analysis-icon">
-                🌾
+                <div class="donut-wrapper">
+
+                    <canvas id="collectorsChart"></canvas>
+
+                </div>
+
             </div>
 
-            <h3>
-                نقاط القوة
-            </h3>
 
-            <ul>
+            <div class="donut-card">
 
-                <li>
-                    تحسين مردودية مراكز التجميع.
-                </li>
+                <h4>
+                    حسب الاستعمال
+                </h4>
 
-                <li>
-                    تعزيز قدرات التخزين.
-                </li>
+                <div class="donut-wrapper">
 
-                <li>
-                    تحسين تنظيم عمليات التجميع.
-                </li>
+                    <canvas id="usageChart"></canvas>
 
-            </ul>
+                </div>
+
+            </div>
+
+
+            <div class="donut-card">
+
+                <h4>
+                    حسب النّوع
+                </h4>
+
+                <div class="donut-wrapper">
+
+                    <canvas id="typeChart"></canvas>
+
+                </div>
+
+            </div>
 
         </div>
 
-
-
-        <div class="analysis-card">
-
-            <div class="analysis-icon">
-                ⚠️
-            </div>
-
-            <h3>
-                التحديات
-            </h3>
-
-            <ul>
-
-                <li>
-                    تحسين منظومة النقل.
-                </li>
-
-                <li>
-                    تعزيز قدرات التخزين.
-                </li>
-
-                <li>
-                    تقليص آجال التجميع.
-                </li>
-
-            </ul>
-
-        </div>
-
-
-    </div>
+    </article>
 
 </section>
 
 
 
-<!-- =====================================================
+
+<!-- =========================================
      MESSAGE FINAL
-===================================================== -->
+========================================= -->
 
 <section class="final-section">
 
@@ -685,7 +1649,7 @@
         </h2>
 
         <p>
-            نحو منظومة تجميع أكثر نجاعة
+            معاً من أجل موسم تجميع ناجح
         </p>
 
     </div>
@@ -693,41 +1657,23 @@
 </section>
 
 
-
 </main>
 
 
 
-<!-- =====================================================
+<!-- =========================================
      FOOTER
-===================================================== -->
+========================================= -->
 
 <footer>
 
-    <div class="footer-content">
+    <p>
+        ديوان الحبوب
+    </p>
 
-        <h3>
-            ديوان الحبوب
-        </h3>
-
-        <p>
-            وزارة الفلاحة والموارد المائية والصيد البحري
-        </p>
-
-        <p class="contact">
-
-            Tel:
-            70 557 300 –
-            70 557 301
-
-            <br>
-
-            30 Rue Alain Savary,
-            Tunis 1002
-
-        </p>
-
-    </div>
+    <p>
+        تقييم موسم تجميع الحبوب - صابة 2024
+    </p>
 
 </footer>
 
@@ -735,11 +1681,189 @@
 
 <!-- JavaScript -->
 
-<script src="script.js"></script>
+<script>
 
+if (window.ChartDataLabels) {
+    Chart.register(ChartDataLabels);
+}
+
+Chart.defaults.font.family = "Arial, Tahoma, sans-serif";
+
+
+/* =========================================
+   ترتيب الولايات (نفس شكل الفقاعات في الدليل)
+   المصدر: مؤشّرات موسم تجميع الحبوب صابة 2024
+========================================= */
+
+const governoratesData = [
+
+    { name: "باجة",   percent: 27, color: "#1e5631" },
+
+    { name: "بنزرت",  percent: 20, color: "#2e7d32" },
+
+    { name: "جندوبة", percent: 14, color: "#43a047" },
+
+    { name: "القيروان", percent: 9, color: "#7cb342" },
+
+    { name: "سليانة", percent: 9,  color: "#c0ca33" },
+
+    { name: "الكاف",  percent: 5,  color: "#d1a333" },
+
+    { name: "منوبة",  percent: 5,  color: "#e1b84a" }
+
+];
+
+
+const bubbleList = document.getElementById("bubbleRankList");
+
+const maxPercent = Math.max(...governoratesData.map(g => g.percent));
+
+const maxCircle = 130;
+
+const minCircle = 34;
+
+
+governoratesData.forEach(g => {
+
+    const size = Math.round(
+        minCircle + (g.percent / maxPercent) * (maxCircle - minCircle)
+    );
+
+    const row = document.createElement("div");
+    row.className = "bubble-row";
+
+    row.innerHTML = `
+        <div class="bubble-percent">${g.percent}%</div>
+        <div class="bubble-name" style="background:${g.color}">${g.name}</div>
+        <div class="bubble-circle" style="width:${size}px;height:${size}px;background:${g.color}"></div>
+    `;
+
+    bubbleList.appendChild(row);
+
+});
+
+
+
+/* =========================================
+   ثلاثة رسوم دائرية جنبًا إلى جنب
+   (نفس تخطيط صفحة "توزيع كميات الحبوب المجمعة" في الدليل)
+========================================= */
+
+function makeDonut(canvasId, labels, values, colors) {
+
+    return new Chart(
+
+        document.getElementById(canvasId),
+
+        {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: labels,
+
+                datasets: [
+
+                    {
+
+                        data: values,
+
+                        backgroundColor: colors,
+
+                        borderWidth: 2,
+
+                        borderColor: "#fffdf8"
+
+                    }
+
+                ]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                cutout: "58%",
+
+                plugins: {
+
+                    legend: {
+
+                        position: "bottom",
+
+                        rtl: true,
+
+                        textDirection: "rtl",
+
+                        labels: {
+
+                            padding: 12,
+
+                            boxWidth: 12,
+
+                            font: { size: 11 }
+
+                        }
+
+                    },
+
+                    datalabels: {
+
+                        color: "#fff",
+
+                        font: { weight: "bold", size: 12 },
+
+                        formatter: (value) => value + "%"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+}
+
+
+/* حسب المجمّعين: ديوان الحبوب 3% - الشركات التعاونية 29% - المجمعون الخواص 68% */
+
+makeDonut(
+    "collectorsChart",
+    ["ديوان الحبوب", "الشركات التعاونية", "المجمعون الخواص"],
+    [3, 29, 68],
+    ["#9fc5e8", "#3d85c6", "#0b3d66"]
+);
+
+
+/* حسب الاستعمال: حبوب استهلاك 94% - بذور ممتازة 6% */
+
+makeDonut(
+    "usageChart",
+    ["حبوب استهلاك", "بذور ممتازة"],
+    [94, 6],
+    ["#4a8a7f", "#a9d6c9"]
+);
+
+
+/* حسب النوع: القمح الصلب 88% - القمح اللين 3% - الشعير والتريتيكال 9% */
+
+makeDonut(
+    "typeChart",
+    ["القمح الصلب", "القمح اللين", "الشعير والتريتيكال"],
+    [88, 3, 9],
+    ["#324b31", "#8bc34a", "#c9a227"]
+);
+
+</script>
 
 </body>
 
 </html>
-
        
