@@ -1,39 +1,113 @@
+/* =====================================================
+   DONNÉES
+===================================================== */
+
+/*
+   IMPORTANT :
+
+   Remplace les valeurs ci-dessous par tes données
+   réelles.
+
+   Les valeurs des graphiques sont exprimées en
+   pourcentage.
+*/
 
 
+/* =====================================================
+   1. INDICATEURS PRINCIPAUX
+===================================================== */
 
-/* =========================================
-   المؤشرات الرئيسية
-========================================= */
+
+/* الكميات المجمعة */
 
 const totalCollection = 0;
 
+
+/* عدد مراكز التجميع */
+
 const centersNumber = 0;
 
+
+/* عدد الولايات */
+
 const governoratesNumber = 0;
+
+
+/* نسبة التجميع */
 
 const collectionRate = 0;
 
 
-/* عرض المؤشرات */
 
-document.getElementById("totalCollection").textContent =
-    totalCollection.toLocaleString("ar-TN");
+/* Affichage des indicateurs */
 
-document.getElementById("centersNumber").textContent =
-    centersNumber.toLocaleString("ar-TN");
-
-document.getElementById("governoratesNumber").textContent =
-    governoratesNumber.toLocaleString("ar-TN");
-
-document.getElementById("collectionRate").textContent =
-    collectionRate.toLocaleString("ar-TN");
+document.getElementById(
+    "totalCollection"
+).textContent =
+    totalCollection.toLocaleString("fr-FR");
 
 
+document.getElementById(
+    "centersNumber"
+).textContent =
+    centersNumber.toLocaleString("fr-FR");
 
-/* =========================================
-   الرسم الأول
-   الكميات حسب نوع الحبوب
-========================================= */
+
+document.getElementById(
+    "governoratesNumber"
+).textContent =
+    governoratesNumber.toLocaleString("fr-FR");
+
+
+document.getElementById(
+    "collectionRate"
+).textContent =
+    collectionRate.toLocaleString("fr-FR");
+
+
+
+/* =====================================================
+   COULEURS DES GRAPHIQUES
+===================================================== */
+
+
+/*
+   Couleurs inspirées de la présentation
+   institutionnelle du dépliant.
+*/
+
+const chartColors = [
+
+    "#245B36",
+
+    "#D2A63B",
+
+    "#3C7890",
+
+    "#8FAE7B",
+
+    "#C98B2E",
+
+    "#6A8E78"
+
+];
+
+
+
+/* =====================================================
+   2. GRAPHIQUE :
+      حسب النوع
+===================================================== */
+
+
+/*
+   Exemple :
+
+   القمح الصلب
+   القمح اللين
+   الشعير والتريتيكال
+*/
+
 
 const cerealsLabels = [
 
@@ -41,9 +115,7 @@ const cerealsLabels = [
 
     "القمح اللين",
 
-    "الشعير",
-
-    "الترتيكالي"
+    "الشعير والتريتيكال"
 
 ];
 
@@ -54,37 +126,50 @@ const cerealsValues = [
 
     0,
 
-    0,
-
     0
 
 ];
 
 
-const cerealsChart = new Chart(
 
-    document.getElementById("cerealesChart"),
+const cerealsCanvas =
+    document.getElementById(
+        "cerealesChart"
+    );
+
+
+new Chart(
+
+    cerealsCanvas,
 
     {
 
-        type: "bar",
+        type: "doughnut",
+
 
         data: {
 
-            labels: cerealsLabels,
+            labels:
+                cerealsLabels,
 
             datasets: [
 
                 {
 
-                    label:
-                        "الكميات المجمعة (طن)",
+                    data:
+                        cerealsValues,
 
-                    data: cerealsValues,
+                    backgroundColor:
+                        chartColors.slice(0, 3),
 
-                    borderWidth: 0,
+                    borderColor:
+                        "#ffffff",
 
-                    borderRadius: 7
+                    borderWidth:
+                        4,
+
+                    hoverOffset:
+                        8
 
                 }
 
@@ -98,6 +183,12 @@ const cerealsChart = new Chart(
             responsive: true,
 
             maintainAspectRatio: false,
+
+
+            cutout: "58%",
+
+
+            rotation: -90,
 
 
             plugins: {
@@ -106,144 +197,7 @@ const cerealsChart = new Chart(
 
                     display: true,
 
-                    position: "bottom",
-
-                    rtl: true,
-
-                    textDirection: "rtl"
-
-                }
-
-            },
-
-
-            scales: {
-
-                x: {
-
-                    reverse: false,
-
-                    ticks: {
-
-                        font: {
-
-                            size: 13
-
-                        }
-
-                    }
-
-                },
-
-
-                y: {
-
-                    beginAtZero: true,
-
-                    title: {
-
-                        display: true,
-
-                        text:
-                            "الكميات بالطن",
-
-                        font: {
-
-                            size: 14
-
-                        }
-
-                    }
-
-                }
-
-            },
-
-
-            layout: {
-
-                padding: 10
-
-            }
-
-
-        }
-
-    }
-
-);
-
-
-
-/* =========================================
-   الرسم الثاني
-   توزيع الكميات حسب المناطق
-========================================= */
-
-const regionsLabels = [
-
-    "الشمال",
-
-    "الوسط",
-
-    "الجنوب"
-
-];
-
-
-const regionsValues = [
-
-    0,
-
-    0,
-
-    0
-
-];
-
-
-const regionsChart = new Chart(
-
-    document.getElementById("regionsChart"),
-
-    {
-
-        type: "doughnut",
-
-        data: {
-
-            labels: regionsLabels,
-
-            datasets: [
-
-                {
-
-                    label:
-                        "الكميات المجمعة",
-
-                    data: regionsValues,
-
-                    borderWidth: 2
-
-                }
-
-            ]
-
-        },
-
-
-        options: {
-
-            responsive: true,
-
-            maintainAspectRatio: false,
-
-
-            plugins: {
-
-                legend: {
-
-                    position: "bottom",
+                    position: "right",
 
                     rtl: true,
 
@@ -251,18 +205,52 @@ const regionsChart = new Chart(
 
                     labels: {
 
-                        padding: 18
+                        padding: 16,
+
+                        boxWidth: 14,
+
+                        font: {
+
+                            family:
+                                "Cairo",
+
+                            size: 13
+
+                        }
+
+                    }
+
+                },
+
+
+                tooltip: {
+
+                    rtl: true,
+
+                    textDirection: "rtl",
+
+                    callbacks: {
+
+                        label:
+                            function(context) {
+
+                                return (
+
+                                    context.label +
+
+                                    " : " +
+
+                                    context.parsed +
+
+                                    "%"
+
+                                );
+
+                            }
 
                     }
 
                 }
-
-            },
-
-
-            layout: {
-
-                padding: 10
 
             }
 
@@ -274,33 +262,30 @@ const regionsChart = new Chart(
 
 
 
-/* =========================================
-   الرسم الثالث
-   تطور الكميات المجمعة
-========================================= */
+/* =====================================================
+   3. GRAPHIQUE :
+      حسب الاستعمال
+===================================================== */
 
-const evolutionLabels = [
 
-    "جوان",
+/*
+   مثال :
 
-    "جويلية",
+   حبوب استهلاك
+   بذور ممتازة
+*/
 
-    "أوت",
 
-    "سبتمبر",
+const usageLabels = [
 
-    "أكتوبر"
+    "حبوب استهلاك",
+
+    "بذور ممتازة"
 
 ];
 
 
-const evolutionValues = [
-
-    0,
-
-    0,
-
-    0,
+const usageValues = [
 
     0,
 
@@ -309,34 +294,51 @@ const evolutionValues = [
 ];
 
 
-const evolutionChart = new Chart(
 
-    document.getElementById("evolutionChart"),
+const usageCanvas =
+    document.getElementById(
+        "usageChart"
+    );
+
+
+new Chart(
+
+    usageCanvas,
 
     {
 
-        type: "line",
+        type: "doughnut",
+
 
         data: {
 
-            labels: evolutionLabels,
+            labels:
+                usageLabels,
 
             datasets: [
 
                 {
 
-                    label:
-                        "الكميات المجمعة (طن)",
+                    data:
+                        usageValues,
 
-                    data: evolutionValues,
+                    backgroundColor:
+                        [
 
-                    borderWidth: 3,
+                            "#245B36",
 
-                    pointRadius: 5,
+                            "#D2A63B"
 
-                    tension: 0.3,
+                        ],
 
-                    fill: false
+                    borderColor:
+                        "#ffffff",
+
+                    borderWidth:
+                        4,
+
+                    hoverOffset:
+                        8
 
                 }
 
@@ -352,28 +354,34 @@ const evolutionChart = new Chart(
             maintainAspectRatio: false,
 
 
+            cutout: "58%",
+
+
+            rotation: -90,
+
+
             plugins: {
 
                 legend: {
 
-                    position: "bottom",
+                    display: true,
+
+                    position: "right",
 
                     rtl: true,
 
-                    textDirection: "rtl"
+                    textDirection: "rtl",
 
-                }
+                    labels: {
 
-            },
+                        padding: 16,
 
-
-            scales: {
-
-                x: {
-
-                    ticks: {
+                        boxWidth: 14,
 
                         font: {
+
+                            family:
+                                "Cairo",
 
                             size: 13
 
@@ -384,33 +392,210 @@ const evolutionChart = new Chart(
                 },
 
 
-                y: {
+                tooltip: {
 
-                    beginAtZero: true,
+                    rtl: true,
 
-                    title: {
+                    textDirection: "rtl",
 
-                        display: true,
+                    callbacks: {
 
-                        text:
-                            "الكميات بالطن",
+                        label:
+                            function(context) {
 
-                        font: {
+                                return (
 
-                            size: 14
+                                    context.label +
 
-                        }
+                                    " : " +
+
+                                    context.parsed +
+
+                                    "%"
+
+                                );
+
+                            }
 
                     }
 
                 }
 
-            },
+            }
+
+        }
+
+    }
+
+);
 
 
-            layout: {
 
-                padding: 10
+/* =====================================================
+   4. GRAPHIQUE :
+      حسب المجمعين
+===================================================== */
+
+
+/*
+   مثال :
+
+   المجمعون الخواص
+   الشركات التعاونية
+   ديوان الحبوب
+*/
+
+
+const collectorsLabels = [
+
+    "المجمعون الخواص",
+
+    "الشركات التعاونية",
+
+    "ديوان الحبوب"
+
+];
+
+
+const collectorsValues = [
+
+    0,
+
+    0,
+
+    0
+
+];
+
+
+
+const collectorsCanvas =
+    document.getElementById(
+        "collectorsChart"
+    );
+
+
+new Chart(
+
+    collectorsCanvas,
+
+    {
+
+        type: "doughnut",
+
+
+        data: {
+
+            labels:
+                collectorsLabels,
+
+            datasets: [
+
+                {
+
+                    data:
+                        collectorsValues,
+
+                    backgroundColor:
+                        [
+
+                            "#245B36",
+
+                            "#3C7890",
+
+                            "#D2A63B"
+
+                        ],
+
+                    borderColor:
+                        "#ffffff",
+
+                    borderWidth:
+                        4,
+
+                    hoverOffset:
+                        8
+
+                }
+
+            ]
+
+        },
+
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+
+            cutout: "58%",
+
+
+            rotation: -90,
+
+
+            plugins: {
+
+                legend: {
+
+                    display: true,
+
+                    position: "right",
+
+                    rtl: true,
+
+                    textDirection: "rtl",
+
+                    labels: {
+
+                        padding: 16,
+
+                        boxWidth: 14,
+
+                        font: {
+
+                            family:
+                                "Cairo",
+
+                            size: 13
+
+                        }
+
+                    }
+
+                },
+
+
+                tooltip: {
+
+                    rtl: true,
+
+                    textDirection: "rtl",
+
+                    callbacks: {
+
+                        label:
+                            function(context) {
+
+                                return (
+
+                                    context.label +
+
+                                    " : " +
+
+                                    context.parsed +
+
+                                    "%"
+
+                                );
+
+                            }
+
+                    }
+
+                }
 
             }
 
