@@ -9,11 +9,22 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>
-        تقييم موسم تجميع الحبوب - صابة 2026
+        يوم تقييمي لموسم تجميع الحبوب
     </title>
 
-    <!-- Feuille de style -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Police arabe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -24,15 +35,35 @@
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
+<!-- =====================================================
+     HEADER / PAGE D'ACCUEIL
+===================================================== -->
 
 <header class="hero">
 
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
+
+
+        <!-- Logo -->
+
+        <div class="logo-container">
+
+            <!--
+            إذا كان لديك شعار ديوان الحبوب،
+            ضعه في نفس المجلد باسم logo.png
+            -->
+
+            <img src="logo.png"
+                 alt="شعار ديوان الحبوب"
+                 class="logo"
+                 onerror="this.style.display='none'">
+
+        </div>
+
+
+        <!-- المؤسسة -->
 
         <div class="institution">
 
@@ -50,24 +81,30 @@
         <div class="separator"></div>
 
 
+        <!-- العنوان الرئيسي -->
+
         <h1>
             من السنابل إلى الصوامع
         </h1>
 
 
         <h2>
-            صابة 2026
+            يوم تقييمي لموسم تجميع الحبوب
         </h2>
 
 
         <p class="hero-description">
-            تقييم موسم تجميع الحبوب
+            صابة 2026
         </p>
 
 
-        <a href="#program" class="main-button">
+        <a href="#program"
+           class="main-button">
+
             اكتشف النتائج
+
         </a>
+
 
     </div>
 
@@ -75,18 +112,21 @@
 
 
 
-<!-- =========================================
-     CONTENU PRINCIPAL
-========================================= -->
+<!-- =====================================================
+     CONTENU
+===================================================== -->
 
 <main>
 
 
-<!-- =========================================
-     PROGRAMME
-========================================= -->
 
-<section id="program" class="section">
+<!-- =====================================================
+     01 - PROGRAMME
+===================================================== -->
+
+<section id="program"
+         class="section">
+
 
     <div class="section-heading">
 
@@ -101,7 +141,7 @@
             </h2>
 
             <p>
-                البرنامج العام لأشغال الندوة الوطنية
+                البرنامج العام لأشغال اليوم التقييمي
             </p>
 
         </div>
@@ -109,8 +149,11 @@
     </div>
 
 
+
     <div class="program-container">
 
+
+        <!-- 1 -->
 
         <div class="program-item">
 
@@ -135,6 +178,8 @@
         </div>
 
 
+        <!-- 2 -->
+
         <div class="program-item">
 
             <div class="program-time">
@@ -150,13 +195,15 @@
                 </h3>
 
                 <p>
-                    كلمة الافتتاح وتقديم أشغال الندوة.
+                    كلمة الافتتاح وتقديم أشغال اليوم التقييمي.
                 </p>
 
             </div>
 
         </div>
 
+
+        <!-- 3 -->
 
         <div class="program-item">
 
@@ -169,17 +216,19 @@
             <div class="program-content">
 
                 <h3>
-                    تقديم نتائج موسم التجميع
+                    عرض نتائج موسم التجميع
                 </h3>
 
                 <p>
-                    عرض أهم المؤشرات المتعلقة بموسم تجميع الحبوب.
+                    تقديم أهم المؤشرات والنتائج المتعلقة بموسم تجميع الحبوب.
                 </p>
 
             </div>
 
         </div>
 
+
+        <!-- 4 -->
 
         <div class="program-item">
 
@@ -200,6 +249,8 @@
         </div>
 
 
+        <!-- 5 -->
+
         <div class="program-item">
 
             <div class="program-time">
@@ -215,14 +266,15 @@
                 </h3>
 
                 <p>
-                    مناقشة النتائج والصعوبات المسجلة
-                    والحلول المقترحة.
+                    مناقشة النتائج والصعوبات المسجلة والحلول المقترحة.
                 </p>
 
             </div>
 
         </div>
 
+
+        <!-- 6 -->
 
         <div class="program-item">
 
@@ -235,7 +287,7 @@
             <div class="program-content">
 
                 <h3>
-                    اختتام أشغال الندوة
+                    اختتام أشغال اليوم التقييمي
                 </h3>
 
             </div>
@@ -249,11 +301,12 @@
 
 
 
-<!-- =========================================
-     INDICATEURS
-========================================= -->
+<!-- =====================================================
+     02 - INDICATEURS
+===================================================== -->
 
-<section class="section indicators-section">
+<section class="section">
+
 
     <div class="section-heading">
 
@@ -276,8 +329,11 @@
     </div>
 
 
+
     <div class="indicators">
 
+
+        <!-- الكميات -->
 
         <div class="indicator-card">
 
@@ -286,9 +342,11 @@
             </div>
 
             <div class="indicator-value">
+
                 <span id="totalCollection">
                     0
                 </span>
+
             </div>
 
             <div class="indicator-label">
@@ -302,6 +360,9 @@
         </div>
 
 
+
+        <!-- مراكز -->
+
         <div class="indicator-card">
 
             <div class="indicator-icon">
@@ -309,9 +370,11 @@
             </div>
 
             <div class="indicator-value">
+
                 <span id="centersNumber">
                     0
                 </span>
+
             </div>
 
             <div class="indicator-label">
@@ -321,6 +384,9 @@
         </div>
 
 
+
+        <!-- الولايات -->
+
         <div class="indicator-card">
 
             <div class="indicator-icon">
@@ -328,9 +394,11 @@
             </div>
 
             <div class="indicator-value">
+
                 <span id="governoratesNumber">
                     0
                 </span>
+
             </div>
 
             <div class="indicator-label">
@@ -340,16 +408,23 @@
         </div>
 
 
+
+        <!-- النسبة -->
+
         <div class="indicator-card">
 
             <div class="indicator-icon">
-                📈
+                📊
             </div>
 
             <div class="indicator-value">
+
                 <span id="collectionRate">
                     0
-                </span>%
+                </span>
+
+                %
+
             </div>
 
             <div class="indicator-label">
@@ -365,11 +440,13 @@
 
 
 
-<!-- =========================================
-     GRAPHIQUES
-========================================= -->
+<!-- =====================================================
+     03 - GRAPHIQUES
+===================================================== -->
 
-<section id="results" class="section">
+<section id="results"
+         class="section">
+
 
     <div class="section-heading">
 
@@ -384,7 +461,7 @@
             </h2>
 
             <p>
-                قراءة بيانية لمعطيات موسم التجميع
+                توزيع كميات الحبوب المجمعة
             </p>
 
         </div>
@@ -392,21 +469,26 @@
     </div>
 
 
+
     <div class="charts-grid">
 
 
-        <!-- الرسم الأول -->
+
+        <!-- =================================================
+             GRAPHIQUE 1
+        ================================================= -->
 
         <article class="chart-card">
+
 
             <div class="chart-title">
 
                 <h3>
-                    الكميات المجمعة حسب نوع الحبوب
+                    حسب النوع
                 </h3>
 
                 <p>
-                    توزيع الكميات حسب الأصناف
+                    توزيع الحبوب المجمعة حسب النوع
                 </p>
 
             </div>
@@ -414,26 +496,31 @@
 
             <div class="chart-wrapper">
 
-                <canvas id="cerealesChart"></canvas>
+                <canvas id="cerealesChart">
+                </canvas>
 
             </div>
+
 
         </article>
 
 
 
-        <!-- الرسم الثاني -->
+        <!-- =================================================
+             GRAPHIQUE 2
+        ================================================= -->
 
         <article class="chart-card">
+
 
             <div class="chart-title">
 
                 <h3>
-                    توزيع الكميات حسب المناطق
+                    حسب الاستعمال
                 </h3>
 
                 <p>
-                    مساهمة مختلف المناطق في عملية التجميع
+                    توزيع الحبوب حسب الاستعمال
                 </p>
 
             </div>
@@ -441,26 +528,31 @@
 
             <div class="chart-wrapper">
 
-                <canvas id="regionsChart"></canvas>
+                <canvas id="usageChart">
+                </canvas>
 
             </div>
+
 
         </article>
 
 
 
-        <!-- الرسم الثالث -->
+        <!-- =================================================
+             GRAPHIQUE 3
+        ================================================= -->
 
         <article class="chart-card chart-full">
 
+
             <div class="chart-title">
 
                 <h3>
-                    تطور الكميات المجمعة
+                    حسب المجمعين
                 </h3>
 
                 <p>
-                    تطور عملية التجميع خلال الموسم
+                    توزيع الكميات حسب مؤسسات التجميع
                 </p>
 
             </div>
@@ -468,9 +560,11 @@
 
             <div class="chart-wrapper large">
 
-                <canvas id="evolutionChart"></canvas>
+                <canvas id="collectorsChart">
+                </canvas>
 
             </div>
+
 
         </article>
 
@@ -481,10 +575,106 @@
 
 
 
+<!-- =====================================================
+     04 - ANALYSE
+===================================================== -->
 
-<!-- =========================================
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <span class="section-number">
+            04
+        </span>
+
+        <div>
+
+            <h2>
+                قراءة وتحليل النتائج
+            </h2>
+
+            <p>
+                أهم الملاحظات والاستنتاجات
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="analysis-grid">
+
+
+        <div class="analysis-card">
+
+            <div class="analysis-icon">
+                🌾
+            </div>
+
+            <h3>
+                نقاط القوة
+            </h3>
+
+            <ul>
+
+                <li>
+                    تحسين مردودية مراكز التجميع.
+                </li>
+
+                <li>
+                    تعزيز قدرات التخزين.
+                </li>
+
+                <li>
+                    تحسين تنظيم عمليات التجميع.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="analysis-card">
+
+            <div class="analysis-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                التحديات
+            </h3>
+
+            <ul>
+
+                <li>
+                    تحسين منظومة النقل.
+                </li>
+
+                <li>
+                    تعزيز قدرات التخزين.
+                </li>
+
+                <li>
+                    تقليص آجال التجميع.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
      MESSAGE FINAL
-========================================= -->
+===================================================== -->
 
 <section class="final-section">
 
@@ -495,7 +685,7 @@
         </h2>
 
         <p>
-            معاً من أجل موسم تجميع ناجح
+            نحو منظومة تجميع أكثر نجاعة
         </p>
 
     </div>
@@ -503,23 +693,41 @@
 </section>
 
 
+
 </main>
 
 
 
-<!-- =========================================
+<!-- =====================================================
      FOOTER
-========================================= -->
+===================================================== -->
 
 <footer>
 
-    <p>
-        ديوان الحبوب
-    </p>
+    <div class="footer-content">
 
-    <p>
-        تقييم موسم تجميع الحبوب - صابة 2026
-    </p>
+        <h3>
+            ديوان الحبوب
+        </h3>
+
+        <p>
+            وزارة الفلاحة والموارد المائية والصيد البحري
+        </p>
+
+        <p class="contact">
+
+            Tel:
+            70 557 300 –
+            70 557 301
+
+            <br>
+
+            30 Rue Alain Savary,
+            Tunis 1002
+
+        </p>
+
+    </div>
 
 </footer>
 
@@ -529,9 +737,9 @@
 
 <script src="script.js"></script>
 
+
 </body>
 
 </html>
-
 
        
