@@ -251,7 +251,7 @@
 
             display: inline-block;
 
-            padding: 14px 32px;
+            padding: 10px 25px;
 
             border-radius: 32px;
 
@@ -261,7 +261,7 @@
 
             text-decoration: none;
 
-            font-size: 18px;
+            font-size: 10px;
 
             font-weight: bold;
 
@@ -1896,6 +1896,20 @@ body {
     .main-button { padding: 6px 10px !important; font-size: 11px !important; }
 }
 
+/* Ajustement uniquement de la taille des boutons sur téléphone */
+@media (max-width: 600px) {
+    .hero-buttons {
+        gap: 3px !important;
+        padding: 0 4px 3px !important;
+    }
+    .main-button {
+        padding: 3px 6px !important;
+        font-size: 8px !important;
+        line-height: 1.15 !important;
+        border-radius: 18px !important;
+    }
+}
+
 </style>
 
 </head>
@@ -2517,6 +2531,7 @@ body {
     <article class="chart-card">
         <div class="donut-row">
 
+            
             <div class="donut-card">
                 <h4>توزيع الكميات المجمّعة حسب الاستعمال على الصعيد الوطني</h4>
                 <div class="donut-wrapper">
@@ -2524,6 +2539,7 @@ body {
                 </div>
                 <div class="custom-legend" id="usageChartLegend"></div>
             </div>
+
 
 
             <div class="donut-card">
