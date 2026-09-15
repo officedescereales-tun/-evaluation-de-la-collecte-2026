@@ -1772,6 +1772,75 @@ body {
 .lab-info-block p {
     color: #344b39 !important;
 }
+
+
+/* Cadre élégant pour le titre des quantités cumulées */
+.quantities-title {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 28px;
+    padding: 14px 28px;
+    text-align: center;
+    color: #245b36;
+    background: linear-gradient(135deg, #f4f8ed, #fffdf7);
+    border: 3px solid #9aaa78;
+    border-radius: 18px;
+    box-shadow: 0 4px 0 #d1a333, 0 6px 18px rgba(36, 91, 54, 0.12);
+    line-height: 1.45;
+}
+
+.quantities-title .quantity-number {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9em;
+    color: #245b36;
+}
+
+@media (max-width: 600px) {
+    .quantities-title {
+        width: 94%;
+        padding: 11px 14px;
+        margin-bottom: 20px;
+        font-size: 25px;
+        border-width: 2px;
+    }
+}
+
+/* Ajustement final : titre des quantités plus grand et cadre assorti */
+.quantities-title {
+    width: min(92%, 760px);
+    padding: 24px 46px;
+    margin: 0 auto 34px;
+    font-size: 38px;
+    font-weight: 800;
+    border: 4px solid #245b36;
+    border-radius: 22px;
+    box-shadow: 0 5px 0 #d1a333, 0 8px 22px rgba(36, 91, 54, 0.16);
+    line-height: 1.5;
+}
+
+.quantities-title .quantity-number {
+    margin-top: 8px;
+    font-size: 0.82em;
+    font-weight: 800;
+}
+
+@media (max-width: 600px) {
+    .quantities-title {
+        width: 86%;
+        padding: 12px 10px;
+        margin-bottom: 20px;
+        font-size: 25px;
+        border-width: 2px;
+        border-radius: 12px;
+        box-shadow: 0 3px 0 #d1a333, 0 5px 14px rgba(36, 91, 54, 0.12);
+    }
+
+    .quantities-title .quantity-number {
+        font-size: 0.78em;
+    }
+}
 </style>
 
 </head>
@@ -2441,6 +2510,11 @@ body {
         <p class="lab-note">في صورة اعتراض الفلّاح على جودة الحبوب المسلّمة إلى مراكز التّجميع يمكنه اللّجوء إلى مخابر ديوان الحبوب لإعادة التّعيير.</p>
     </div>
 
+    <div class="quantities-title" aria-label="الكميات المجمّعة 11 مليون قنطار">
+        الكميات المجمّعة
+        <span class="quantity-number">11 مليون قنطار</span>
+    </div>
+
     <article class="chart-card">
         <div class="donut-row">
 
@@ -2486,7 +2560,6 @@ body {
     <section class="governorates-image-section">
         <div class="section-heading">
             <h2>توزيع  الكميات المجمعة حسب الولايات</h2>
-            <p class="stat-subtitle">11 مليون قنطار</p>
         </div>
 
         <div class="governorates-image-block">
