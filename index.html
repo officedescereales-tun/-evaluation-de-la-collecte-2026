@@ -2319,9 +2319,8 @@ body {
             <div class="program-content">
 
                 <h3>
-                    العرض 10 — الاستعدادات لموسم البذر 2026-2027
+                  العرض 10 — الاستعداد ومتابعة موسم بذر الحبوب 2026- 2027
                 </h3>
-
                 <p>
                   آمنة المحجوبي - ديوان الحبوب
                 </p>
@@ -2520,26 +2519,6 @@ body {
 
 
             <div class="donut-card">
-                <h4>توزيع الكميات المجمّعة حسب الأنواع والاستعمال</h4>
-                <p style="font-size:17px;color:#777;margin-bottom:5px;">بذور ممتازة خام 0,7 م ق</p>
-                <div class="donut-wrapper">
-                    <canvas id="seedsChart"></canvas>
-                </div>
-                <div class="custom-legend" id="seedsChartLegend"></div>
-            </div>
-
-            <div class="donut-card">
-                <p style="font-size:17px;color:#777;margin-bottom:5px;">حبوب استهلاك 10,3 م ق</p>
-                <div class="donut-wrapper">
-                    <canvas id="consumptionChart"></canvas>
-                </div>
-                <div class="custom-legend" id="consumptionChartLegend"></div>
-            </div>
-
-
-
-
-            <div class="donut-card">
                 <h4>توزيع الكميات المجمعة حسب المتدخلين</h4>
                 <div class="donut-wrapper">
                     <canvas id="collectorsChart"></canvas>
@@ -2651,16 +2630,6 @@ body {
     createDonut('usageChart',
         ['حبوب استهلاك', 'بذور ممتازة خام'],
         [94, 6]
-    );
-
-    createDonut('consumptionChart',
-        ['قمح صلب', 'شعير و تريتيكال', 'قمح لين'],
-        [73, 16, 11]
-    );
-
-    createDonut('seedsChart',
-        ['قمح صلب', 'قمح لين', 'شعير و تريتيكال'],
-        [84, 13, 3]
     );
 
     createDonut('collectorsChart',
